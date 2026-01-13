@@ -1,0 +1,82 @@
+/* ===========================================
+   STYLES POUR L'EFFET CREA LUMINEUX (LUCIOLLES VERTES)
+   =========================================== */
+
+/* Conteneur de l'effet (ajouté sur le .project-section dans crea.html) */
+.fireflies-container {
+    position: relative; /* Très important pour positionner les lucioles */
+    max-width: 1300px; 
+}
+
+/* Le div invisible qui contient les lucioles */
+.fireflies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    pointer-events: none; /* Permet d'interagir avec les éléments en dessous */
+    overflow: hidden; /* Empêche les lucioles de dépasser le cadre */
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.5s ease;
+}
+
+/* Affiche l'effet uniquement si :
+ * 1. Le body est en mode sombre (.dark-mode)
+ * 2. Le conteneur est actif au survol (.hover-active)
+ */
+body.dark-mode .fireflies-container.hover-active .fireflies {
+    opacity: 1;
+}
+
+/* Style de base d'une luciole / lueur */
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    /* Couleur verte claire (adaptée au thème de la page Création Numérique) */
+    background: #aaffaa; 
+    box-shadow: 0 0 10px #aaffaa, 0 0 5px #aaffaa; 
+    opacity: 0; /* Caché par défaut */
+    animation: 
+        moveFirefly 15s linear infinite,
+        flickerFirefly 3s infinite alternate;
+}
+
+/* Animation de déplacement (mouvement lent) */
+@keyframes moveFirefly {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(15vw, -10vh) scale(0.8); }
+    50% { transform: translate(-5vw, 15vh) scale(1.2); }
+    75% { transform: translate(10vw, 5vh) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Animation de scintillement (changement d'opacité) */
+@keyframes flickerFirefly {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+/* Variations aléatoires (pour que chaque luciole soit différente) */
+.firefly:nth-child(2n) {
+    animation-duration: 18s, 4s;
+    animation-delay: 1s, 0.5s;
+    transform: scale(0.7);
+}
+.firefly:nth-child(3n) {
+    animation-duration: 20s, 2s;
+    animation-delay: 2s, 1s;
+    transform: scale(1.1);
+    /* Variation de couleur plus blanche */
+    background: #ffffff; 
+    box-shadow: 0 0 8px #ffffff, 0 0 4px #ffffff;
+}
+.firefly:nth-child(5n) {
+    animation-duration: 12s, 5s;
+    animation-delay: 0.5s, 1.5s;
+    transform: scale(0.9);
+}

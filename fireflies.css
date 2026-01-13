@@ -1,0 +1,84 @@
+/* ===========================================
+   STYLES POUR L'EFFET FIREFLIES (LUCIOLLES)
+   =========================================== */
+
+/* Conteneur pour les lucioles (la .video-container) */
+.fireflies-container {
+    position: relative; /* Très important pour positionner les lucioles */
+    /* Cache l'effet par défaut */
+    /* MODIF : La bordure doit être sur le fireflies-container dans audiovisuel.css */
+    max-width: 1300px; 
+}
+
+/* Le div invisible qui contient les lucioles */
+.fireflies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Assurez-vous que les lucioles sont au-dessus de la vidéo (ou en dessous si vous préférez) */
+    z-index: 2; 
+    pointer-events: none; /* Permet d'interagir avec les éléments en dessous */
+    overflow: hidden; /* Empêche les lucioles de dépasser le cadre */
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.5s ease;
+}
+
+/* * NOUVEAU : Affiche l'effet uniquement si :
+ * 1. Le body est en mode sombre (.dark-mode)
+ * 2. Le conteneur vidéo est survolé (.hover-active)
+ */
+body.dark-mode .fireflies-container.hover-active .fireflies {
+    opacity: 1;
+}
+
+/* Style de base d'une luciole */
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffc832; /* Couleur jaune-orangé */
+    box-shadow: 0 0 10px #ffc832, 0 0 5px #ffc832; /* Lueur */
+    opacity: 0; /* Caché par défaut */
+    animation: 
+        moveFirefly 15s linear infinite,
+        flickerFirefly 3s infinite alternate;
+}
+
+/* Animation de déplacement (mouvement lent) */
+@keyframes moveFirefly {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(15vw, -10vh) scale(0.8); }
+    50% { transform: translate(-5vw, 15vh) scale(1.2); }
+    75% { transform: translate(10vw, 5vh) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Animation de scintillement (changement d'opacité) */
+@keyframes flickerFirefly {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+
+/* Délai aléatoire pour chaque luciole (pour ne pas qu'elles bougent ensemble) */
+/* L'animation de déplacement sera gérée par le JS pour une position de départ aléatoire */
+
+/* Pour une variation supplémentaire (optionnel, plus précis en JS) */
+.firefly:nth-child(even) {
+    animation-delay: 0s, 1.5s;
+    animation-duration: 18s, 2s;
+}
+
+.firefly:nth-child(3n+1) {
+    animation-delay: 5s, 0.5s;
+    animation-duration: 20s, 4s;
+}
+
+.firefly:nth-child(5n) {
+    animation-delay: 10s, 2.5s;
+    animation-duration: 16s, 2.5s;
+}

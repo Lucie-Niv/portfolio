@@ -1,0 +1,114 @@
+/* ===========================================
+   STYLES POUR L'EFFET VIE MARINE (MÉDUSES - FINAL V2)
+   =========================================== */
+
+/* Conteneur et logique d'affichage */
+.fireflies-container {
+    position: relative; 
+    /* NOUVEAU : Étend le conteneur au maximum de la section projet */
+    max-width: 1300px; 
+    /* border: red 2px solid; */
+    /* overflow-x: hidden; */
+}
+
+.fireflies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Reste en arrière-plan */
+    pointer-events: none; 
+    /* AJOUT CLÉ ICI : Si une méduse déborde, elle sera coupée */
+    overflow: hidden; 
+    opacity: 0; 
+    transition: opacity 2.5s ease-in-out; 
+
+    background: none; 
+}
+body.dark-mode .fireflies-container.hover-active .fireflies {
+    opacity: 1;
+}
+
+/* 1. Style de base de la Méduse */
+.firefly {
+    position: absolute;
+    width: 210px; 
+    height: 240px; 
+    /* CORRECTION 2 : L'opacité est gérée par l'animation fadeJellyfish avec des valeurs très basses */
+    opacity: 0; 
+    
+    background-image: url('img/meduse.png'); 
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center top;
+    
+    transform-origin: center center; 
+    
+    /* CORRECTION 2 : Luminosité plus faible et couleur Bleu-Turquoise */
+    filter: 
+        drop-shadow(0 0 8px rgba(50, 255, 200, 0.884)) /* Halo Bleu-Turquoise réduit (opacité 0.3) */
+        drop-shadow(0 0 3px rgba(255, 255, 255, 0.054)); /* Cœur blanc très faible */
+            
+    /* CORRECTION 4 : Mouvement Ultra-Ultra-Lent (durée augmentée) */
+    animation: 
+        moveJellyfish 120s linear infinite, /* 120s (2 minutes) au lieu de 90s */
+        fadeJellyfish 18s infinite alternate; /* Scintillement lent */
+    
+    animation-delay: 0s, 0s;
+}
+
+
+/* --- Keyframes pour les animations --- */
+
+/* Mouvement Ultra-Ultra-Lent (120s) */
+@keyframes moveJellyfish {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    25% { transform: translate(30vw, -10vh) scale(0.95) rotate(3deg); }
+    50% { transform: translate(-25vw, 15vh) scale(1.05) rotate(-3deg); }
+    75% { transform: translate(20vw, -12vh) scale(0.98) rotate(1deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+}
+
+/* Lueur / Apparition progressive (Très atténuée) */
+@keyframes fadeJellyfish {
+    0% { opacity: 0.05; } /* Opacité de base très très faible */
+    50% { opacity: 0.6; } /* Opacité maximale réduite à 60% */
+    100% { opacity: 0.05; }
+}
+
+
+/* --- Simulation de l'aléatoire (Taille, Vitesse et Variation de Couleur) --- */
+
+/* Meduse Moyenne (Bleu classique) */
+.firefly:nth-child(2) {
+    width: 90px; height: 110px;
+    animation-duration: 90s, 15s;
+    animation-delay: 5s, 1s;
+    /* Couleur Bleu classique subtil pour la variation */
+    filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.3)) drop-shadow(0 0 3px rgba(255, 255, 255, 0.1)); 
+}
+
+/* Meduse Grande (Turquoise) */
+.firefly:nth-child(3) {
+    width: 150px; height: 180px; 
+    animation-duration: 150s, 25s; /* La plus lente */
+    animation-delay: 15s, 4s;
+    /* Utilise la couleur turquoise par défaut définie plus haut */
+}
+
+/* Meduse Petite (Bleu classique) */
+.firefly:nth-child(4) {
+    width: 80px; height: 100px;
+    animation-duration: 70s, 12s;
+    animation-delay: 8s, 2s;
+    /* Couleur Bleu classique subtil */
+    filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.3)) drop-shadow(0 0 3px rgba(255, 255, 255, 0.1)); 
+}
+
+/* Meduse Moyenne/Grande (Turquoise) */
+.firefly:nth-child(5) {
+    width: 130px; height: 160px;
+    animation-duration: 110s, 20s;
+    animation-delay: 20s, 5s;
+}

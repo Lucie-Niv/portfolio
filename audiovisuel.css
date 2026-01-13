@@ -1,0 +1,479 @@
+* {
+  box-sizing: border-box;
+  /* La règle la plus forte pour contraindre la taille de tout élément */
+  max-width: 100%; 
+}
+
+/* Règle pour forcer les navigateurs à ignorer la marge/padding de * certains * éléments qui pourraient déborder */
+html, body {
+    /* Empêche les marges ou paddings de forcer la barre de défilement horizontale */
+    min-width: 0; 
+    padding: 0; 
+    margin: 0;
+}
+
+body{
+  /* CORRECTION CLÉ : Supprime la barre de défilement horizontale si elle apparaît */
+  overflow-x: hidden; 
+  background-color: #3E0000;
+  min-height: 100vh; 
+  transition: background-color 0.5s ease;
+  font-family: 'Poppins';
+}
+
+/* NOUVEAU : Styles pour le mode sombre */
+body.dark-mode {
+  background-color: #1a1a1a; 
+}
+
+/* NOUVEAU : Styles pour le contenu en mode sombre */
+body.dark-mode .content {
+    background: #2c2c2c; 
+    color: #EFE9FF; 
+}
+
+/* NOUVEAU : Inversion des couleurs du contour pour le mode sombre (optionnel, adaptez si besoin) */
+body.dark-mode .layer1 { background: #000000; }
+body.dark-mode .layer2 { background: #270000; }
+body.dark-mode .layer3 { background: #470000; }
+
+/* Contour global */
+.layer {
+  /* Mise à jour pour utiliser la fonction clamp() et le même padding/border-radius */
+  padding: clamp(8px, 2vw, 18px); 
+  border-radius: 30px;
+}
+
+.layer1 { background: #820000; }
+.layer2 { background: #B80000; }
+.layer3 { background: #ff7429; }
+
+.content {
+  background: #EFE9FF;
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  /* CORRECTION CLÉ : Padding réactif pour s'adapter aux petits écrans */
+  padding: clamp(10px, 4vw, 20px); 
+  transition: background-color 0.5s ease;
+}
+
+nav{
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 8%;
+    /* Centrage du nav */
+    max-width: 800px; 
+    margin: auto;
+    transition: background-color 0.5s ease;
+}
+
+/* NOUVEAU : Nav en mode sombre */
+body.dark-mode nav {
+    background-color: #540000; /* Couleur conservée de dev_web.css pour la nav dark mode */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding-left: 17px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+}
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* NOUVEAU : Liens en mode sombre */
+body.dark-mode .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+body.dark-mode .nav-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.burger {
+  display: none; 
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 5;
+  order: 3; 
+}
+
+h1{
+  margin-left: 40px; 
+  font-family: Kaushan Script;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+}
+h2{
+    margin: 0;
+}
+
+/* Fait apparaitre le menu burger jusqu'à 979px (Mise à jour du point de rupture) */
+@media screen and (max-width: 979px) {
+
+    .burger {
+      display: block; 
+      position: absolute; 
+      right: 35px; 
+      top: 35px;
+      z-index: 10;
+    }
+    
+    #dark-mode-toggle {
+    position: absolute;
+    left: 35px; /* Aligné à gauche comme sur la page d'accueil */
+    top: 25px;
+    z-index: 10;
+}
+
+    nav {
+      background-color: transparent; 
+      max-width: none;
+      margin: 0;
+      padding: 0; 
+      justify-content: flex-start;
+      gap: 0;
+    }
+    
+    body.dark-mode nav {
+        background-color: transparent;
+    }
+
+    .nav-links {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 80px;      /* Distance par rapport au haut */
+    right: 35px;    /* Aligné avec le bouton burger */
+    background: white;
+    padding: 20px 30px;
+    border-radius: 25px; /* Bords arrondis identiques à l'index */
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 3px solid #0003; /* Bordure légère comme sur l'index */
+}
+
+    .nav-links a {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: #000;
+        text-decoration: none;
+        padding: 8px 0;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+    
+    body.dark-mode .nav-links {
+        background: #3e5f8a; /* Couleur conservée de dev_web.css pour la nav mobile dark mode */
+    }
+    
+    body.dark-mode .nav-links a {
+        color: #EFE9FF; 
+    }
+
+    .nav-links.active {
+      display: flex;
+    } 
+
+    h1 {
+        margin-top: 50px;
+    }
+}
+
+.nav-links.active {
+    display: flex;
+}   
+
+/* --- Styles spécifiques à la page Audiovisuel (Alignement et Structure) --- */
+
+/* Centrage du contenu du projet - CLÉ */
+.contenu{
+    max-width: 900px;
+    margin: 0 auto; 
+}
+
+/* Structure des sections de projet - CLÉ : Utilisation de GRID (comme dev_web.css) */
+.project-section {
+    gap: 30px; 
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 0; 
+    position: relative; 
+    
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for project sections */
+    gap: 20px; 
+    
+    overflow-x: hidden; 
+    clear: both;
+}
+
+/* Conteneur vidéo/site - CLÉ : Pour le ratio 16:9 et l'affichage responsive */
+.site-ratio-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0; 
+    overflow: hidden; 
+}
+
+.responsive-video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.site-caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    padding-top: 10px; 
+    margin: 0;
+}
+
+/* Colonne gauche (qui devient le conteneur principal) */
+.left-column {
+    max-width: 100%; 
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.site-container {
+    max-width: 100%; 
+    border: 3px solid #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 5px; 
+    border-radius: 20px; 
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.responsive-site {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px; 
+}
+
+/* Description / Lire la suite - Styles cohérents avec dev_web.css */
+.description-container {
+    padding-top: 5px; 
+}
+
+.description-container h2 {
+    display: none; 
+}
+
+.project-section h2:first-of-type {
+    display: block;
+    text-align: center;
+    font-size: 1.5em; 
+    margin-bottom: 20px;
+}
+
+.project-section .left-column h2 {
+    text-align: center;
+}
+
+/* --- Styles pour le paragraphe "Lire plus" --- */
+
+.project-description {
+    overflow: hidden; 
+    line-height: 1.6em; 
+    max-height: calc(1.6em * 7); 
+    transition: max-height 0.5s ease-out; 
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+.project-description.expanded {
+    max-height: 2000px; 
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+.read-more-button {
+    display: block;
+    margin: 10px auto 0; 
+    padding: 12px 25px; 
+    font-size: 1.05rem;
+    background-color: #ff7429; /* Couleur Audiovisuelle */
+    color: #EFE9FF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: 200px; 
+    max-width: 100%;
+    text-align: center;
+}
+
+.read-more-button:hover {
+    background-color: #d14902;
+}
+
+/* Style du bouton en mode sombre */
+body.dark-mode .read-more-button {
+    background-color: #820000; 
+    color: #EFE9FF;
+}
+
+body.dark-mode .read-more-button:hover {
+    background-color: #B80000; 
+}
+
+/* --- Styles pour la section Compétences  --- */
+
+.section-title{
+  margin: 0;
+}
+
+.competences-logos {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 5px; 
+    margin: 0px auto 30px; 
+    padding: 0 5px;
+    flex-wrap: wrap;
+}
+
+.logiciels-logo {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 15px; 
+    margin-bottom: 30px;
+}
+
+.logo-skill {
+    width: 70px; 
+    height: 70px; 
+    object-fit: contain; 
+}
+
+.bouton1{
+  padding: 10px;
+  background-color: #ff7429; /* Couleur Audiovisuelle */
+  color: #EFE9FF;
+  margin: 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* NOUVEAU : Boutons en mode sombre */
+body.dark-mode .bouton1 {
+    background-color: #820000;
+    color: #EFE9FF;
+}
+
+body.dark-mode .bouton1:hover {
+    background-color: #B80000; 
+}
+
+/* --- FOOTER --- (Mise à jour pour correspondre au layout de dev_web.css) */
+
+.footer-structured {
+    background-color: #ff7429;
+    color: #EFE9FF;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+/* NOUVEAU : Footer en mode sombre */
+body.dark-mode .footer-structured {
+    background-color: #470000;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    flex-wrap: wrap; 
+    border-bottom: 1px solid rgba(239, 233, 255, 0.2); 
+}
+
+.footer-section {
+    width: 45%; 
+    /* margin-bottom: 20px; */
+}
+
+.footer-section h4 {
+    color: #fff9da;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #ffffff; 
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section a {
+    color: #EFE9FF;
+    text-decoration: none;
+    line-height: 1.8;
+    display: block;
+    font-size: 0.95rem;
+}
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.back-to-top{
+  color: white;
+}
+
+.footer-structured .footer-section a i {
+    margin-right: 8px; 
+    font-size: 1.1em; 
+    color: #fff9da; 
+}
+
+/* RESPONSIVE pour les sections du footer */
+@media (max-width: 700px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-section {
+        width: 100%;
+        min-width: 0; 
+        text-align: center;
+    }
+    .footer-section h4 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

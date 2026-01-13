@@ -1,0 +1,68 @@
+/* ===========================================
+   STYLES POUR L'EFFET FIREFLIES (LUCIOLLES)
+   =========================================== */
+
+/* Conteneur pour les lucioles */
+.fireflies-container {
+    position: relative; /* Très important pour positionner les lucioles */
+    z-index: 1; /* Assure que ce conteneur est dans le bon ordre de superposition */
+}
+
+/* Le div invisible qui contient les lucioles */
+.fireflies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Les lucioles doivent être sous le texte */
+    z-index: 0; 
+    pointer-events: none; /* Permet d'interagir avec les éléments en dessous */
+    overflow: hidden; /* Empêche les lucioles de dépasser le cadre */
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.5s ease;
+}
+
+/* Affiche l'effet uniquement si :
+ * 1. Le body est en mode sombre (.dark-mode)
+ * 2. Le conteneur est marqué comme actif (.hover-active), déclenché par le JS
+ */
+body.dark-mode .fireflies-container.hover-active .fireflies {
+    opacity: 1;
+}
+
+/* Style de base d'une luciole */
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #9f32ff; /* Couleur jaune-orangé */
+    box-shadow: 0 0 10px #8432ff, 0 0 5px #6624ff; /* Lueur */
+    opacity: 0; /* Caché par défaut, l'animation flicker s'en charge */
+    animation: 
+        moveFirefly 15s linear infinite,
+        flickerFirefly 3s infinite alternate;
+}
+
+/* Animation de déplacement (mouvement lent) */
+@keyframes moveFirefly {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(15vw, -10vh) scale(0.8); }
+    50% { transform: translate(-5vw, 15vh) scale(1.2); }
+    75% { transform: translate(10vw, 5vh) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Animation de scintillement (changement d'opacité) */
+@keyframes flickerFirefly {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+/* Ajustement de la durée de l'animation pour varier l'effet */
+.firefly:nth-child(2n) { animation-duration: 20s, 4s; }
+.firefly:nth-child(3n) { animation-duration: 18s, 2s; }
+.firefly:nth-child(4n) { animation-duration: 22s, 5s; }
+.firefly:nth-child(5n) { animation-duration: 16s, 3.5s; }
