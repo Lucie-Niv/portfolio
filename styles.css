@@ -417,6 +417,7 @@ body.dark-mode .parcours-title {
   border: none;
   margin: 10px;
   border-radius: 250px;
+  text-decoration: none;
 }
 
 /* Dark Mode Buttons */
