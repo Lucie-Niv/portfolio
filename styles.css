@@ -419,6 +419,15 @@ body.dark-mode .parcours-title {
   border-radius: 250px;
   text-decoration: none;
 }
+.bouton3 {
+  padding: 10px;
+  background-color:#a100ac ;
+  color: white;
+  border: none;
+  margin: 10px;
+  border-radius: 250px;
+  text-decoration: none;
+}
 
 /* Dark Mode Buttons */
 body.dark-mode .bouton1 { background-color: #531FFF; }
