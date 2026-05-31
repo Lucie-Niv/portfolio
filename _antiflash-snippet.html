@@ -1,0 +1,16 @@
+<!-- ANTI-FLASH DARK MODE — coller ce bloc dans <head>, AVANT les CSS -->
+<script>
+  (function(){
+    var t = localStorage.getItem('lucie-portfolio-theme');
+    if(t === 'dark'){
+      document.documentElement.style.background = '#0F0D1A';
+      document.documentElement.style.colorScheme = 'dark';
+      // On ajoute la classe sur html pour que global.css puisse l'attraper
+      // avant que body existe
+      document.documentElement.setAttribute('data-preload-dark','1');
+    }
+  })();
+</script>
+<!-- Règle CSS à ajouter dans global.css (déjà incluse) :
+     html[data-preload-dark] { background: #0F0D1A !important; }
+-->

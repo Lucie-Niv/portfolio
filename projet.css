@@ -1,0 +1,497 @@
+/* ============================================
+   projet.css — Page détail d'un projet
+   Inclut : carousel, galerie photo, lightbox naviguable
+   ============================================ */
+
+html[data-preload-dark] { background: #0F0D1A !important; }
+
+/* APRÈS */
+.projet-article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 96px;
+}
+
+/* Galerie pleine largeur : sort du max-width 800px */
+.projet-article.has-gallery {
+  max-width: 1100px;
+}
+
+.loading-msg {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 60px 0;
+}
+
+/* En-tête */
+.projet-header {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.projet-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   APERÇU — base commune
+============================================================ */
+.projet-apercu {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--accent-soft);
+  margin-bottom: 48px;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition);
+}
+
+/* Image unique cliquable */
+.projet-apercu.is-clickable {
+  cursor: pointer;
+  position: relative;
+}
+
+.projet-apercu.is-clickable::after {
+  content: '🔍';
+  position: absolute;
+  top: 14px; right: 16px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.82);
+  border-radius: 50%;
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.projet-apercu.is-clickable:hover::after { opacity: 1; }
+body.dark-mode .projet-apercu.is-clickable::after { background: rgba(26,23,40,0.85); }
+
+.projet-apercu img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Vidéo */
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+.video-wrapper iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   CAROUSEL
+============================================================ */
+.carousel-apercu {
+  position: relative;
+  overflow: hidden;
+  /* Format carré adapté aux publications Instagram */
+  aspect-ratio: 1 / 1;
+  max-height: 600px;
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--bg);
+  max-height: none;
+}
+
+/* Boutons flèches */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: background var(--transition), transform var(--transition);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+body.dark-mode .carousel-btn {
+  background: rgba(26,23,40,0.88);
+  color: var(--text);
+}
+
+.carousel-btn:hover {
+  background: var(--accent);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn:hover svg { stroke: #fff; }
+
+.carousel-btn svg {
+  width: 18px; height: 18px;
+  stroke: var(--text);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+
+/* Dots indicateurs */
+.carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.carousel-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+body.dark-mode .carousel-dot       { background: rgba(167,139,250,0.35); }
+body.dark-mode .carousel-dot.active { background: var(--accent-light); }
+
+/* Compteur */
+.carousel-counter {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  z-index: 5;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   GALERIE PHOTO — grille style Instagram
+============================================================ */
+/* APRÈS */
+.gallery-apercu {
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  margin-bottom: 48px;
+}
+
+/* APRÈS */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  /* border-radius: var(--radius-md); */
+  overflow: hidden;
+}
+
+.photo-gallery:has(.gallery-item:nth-child(4)) {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Les items sont plus grands car la grille prend plus de place */
+.gallery-item {
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+  max-height: none;
+}
+
+.gallery-item:hover img { transform: scale(1.06); }
+
+/* Overlay discret au hover */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(124,58,237,0.15);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.gallery-item:hover::after { opacity: 1; }
+
+/* ============================================================
+   DESCRIPTION
+============================================================ */
+.projet-description-section { margin-bottom: 40px; }
+
+.projet-description-text {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  white-space: pre-line;
+  max-height: 180px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease;
+}
+
+.projet-description-text.open { max-height: 3000px; }
+
+.description-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 70px;
+  background: linear-gradient(transparent, var(--bg));
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.description-fade.hidden { opacity: 0; }
+
+.btn-lire-description {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 11px 26px;
+  margin-top: 16px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-lire-description:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   COMPÉTENCES & LOGICIELS
+============================================================ */
+.projet-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.info-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.info-block h3 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tags-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { cursor: default; user-select: none; }
+
+.logiciels-group { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.logiciel-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 5px;
+}
+
+.logiciel-item img {
+  width: 42px; height: 42px;
+  object-fit: contain; border-radius: 8px;
+  transition: transform var(--transition);
+}
+
+.logiciel-item img:hover { transform: scale(1.1); }
+
+.logiciel-item span {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ============================================================
+   LIGHTBOX — naviguable (galerie) ou simple (image unique)
+============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.93);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-img {
+  max-width: 88vw;
+  max-height: 86vh;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  box-shadow: 0 24px 72px rgba(0,0,0,0.6);
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition), transform var(--transition);
+  z-index: 10;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.25);
+  transform: rotate(90deg);
+}
+
+/* Flèches de navigation dans la lightbox */
+.lightbox-nav {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background var(--transition);
+}
+
+.lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+
+.lightbox-prev { left: 18px; }
+.lightbox-next { right: 18px; }
+
+.lightbox-nav svg {
+  width: 20px; height: 20px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 640px) {
+  .projet-info-grid { grid-template-columns: 1fr; }
+  .projet-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+
+  /* Galerie : 3 colonnes sur mobile aussi (assez petites) */
+  .photo-gallery { gap: 3px; }
+  .photo-gallery:has(.gallery-item:nth-child(4)) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .carousel-btn { width: 36px; height: 36px; }
+  .carousel-btn svg { width: 15px; height: 15px; }
+}
+
+@media (max-width: 400px) {
+  .lightbox-nav { display: none; } /* trop petit : swipe seulement */
+}

@@ -1,0 +1,135 @@
+/* ============================================
+   contact.css — Page contact
+   ============================================ */
+
+html[data-preload-dark] { background: #0F0D1A !important; }
+
+.contact-wrapper {
+  min-height: calc(100vh - var(--nav-h) - 180px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+.contact-header {
+  margin-bottom: 48px;
+}
+
+.contact-header .section-title {
+  margin-bottom: 10px;
+}
+
+.contact-intro {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* Cartes contact */
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateX(5px);
+  border-color: var(--accent-light);
+}
+
+body:not(.dark-mode) .contact-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--accent);
+  transition: background var(--transition), color var(--transition);
+}
+
+.contact-card:hover .contact-icon {
+  background: var(--accent);
+  color: #fff;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 3px;
+  color: var(--text);
+}
+
+.contact-info p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.contact-arrow {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.contact-card:hover .contact-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+/* Instagram — couleur spécifique */
+.contact-card:nth-child(3) .contact-icon {
+  background: rgba(225,48,108,0.1);
+  color: #E1306C;
+}
+
+.contact-card:nth-child(3):hover .contact-icon {
+  background: #E1306C;
+  color: #fff;
+}
+
+/* LinkedIn — couleur spécifique */
+.contact-card:nth-child(2) .contact-icon {
+  background: rgba(10,102,194,0.1);
+  color: #0A66C2;
+}
+
+.contact-card:nth-child(2):hover .contact-icon {
+  background: #0A66C2;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .contact-wrapper { padding-top: 44px; }
+  .contact-card { padding: 18px 18px; gap: 16px; }
+  .contact-icon { width: 44px; height: 44px; min-width: 44px; font-size: 1.1rem; }
+}

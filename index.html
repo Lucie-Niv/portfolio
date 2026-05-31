@@ -1,251 +1,282 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Lucie Nivinou</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="a_propos_lumineux.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Kaushan+Script&family=Overlock+SC&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Kaushan+Script&family=Overlock+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FAFAF9">
+  <title>Lucie Nivinou — Portfolio</title>
+  <meta name="description" content="Portfolio de Lucie Nivinou — Étudiante en BUT MMI, graphisme, audiovisuel, UX/UI et développement web.">
+
+  <!-- ANTI-FLASH DARK MODE -->
+  <script>(function(){var t=localStorage.getItem('lucie-portfolio-theme');if(t==='dark'){document.documentElement.setAttribute('data-preload-dark','1');document.documentElement.style.background='#0F0D1A';}})()</script>
+
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 
-<div class="layer layer1">
-    <div class="layer layer2">
-        <div class="layer layer3">
-            <div class="content">
-                <header>
-                    <nav>
-                        <div class="nav-links" id="nav-links">
-                            <a href="index.html">À propos</a>
-                            <a href="audiovisuel.html">Audiovisuel</a>
-                            <a href="crea.html">Création numérique</a>
-                            <a href="developpement_web.html">Développement web</a>
-                        </div>
+  <!-- ===== NAVIGATION ===== -->
+  <header class="site-header" id="top">
+    <nav class="nav-inner">
+      <!-- Logo : initiales seulement -->
+      <a href="index.html" class="nav-logo" aria-label="Accueil — Lucie Nivinou">L.N.</a>
 
-                        <button id="dark-mode-toggle" class="bouton1">
-                            <i class="fas fa-moon"></i> Mode Sombre
-                        </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">À propos</a></li>
+        <li><a href="projets.html">Projets</a></li>
+      </ul>
 
-                        <div class="burger" id="burger">
-                            ☰
-                        </div>
-                    </nav>
-                </header>
-                
-                <h1>À propos !</h1>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-contact-nav desktop-only">
+          Me contacter
+        </a>
+        <!-- Bouton thème — icône injectée par main.js -->
+        <button class="btn-theme" id="btn-theme" aria-label="Passer en mode sombre" title="Mode sombre"></button>
+        <button class="burger" id="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-                <div class="section-intro fireflies-container">
-                    <div class="fireflies" aria-hidden="true"></div>
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Menu mobile">
+    <a href="index.html" class="active">À propos</a>
+    <a href="projets.html">Projets</a>
+    <a href="contact.html" class="btn-contact-nav">Me contacter</a>
+  </div>
 
-                    <h3 class="info">- À la recherche d'une alternance de 12 mois à partir de Septembre 2026 -</h3>
-                    <div class="portrait-intro">
-                        <div class="texte-intro">
-                            <p class="texte-complet">
-                                Originaire de la Haute-Savoie, j’ai choisi de m’installer en Île-de-France afin d’enrichir mon parcours d’étudiante et saisir de nouvelles opportunités dans un environnement dynamique et stimulant, tout en découvrant la ville de Paris.<br><br>
-
-                                Étudiante à l’Université Gustave Eiffel à Champs-sur-Marne, je me spécialise dans le design graphique, l’audiovisuel et l’expérience utilisateur. À l’issue de mon cursus en BUT MMI (Métiers du Multimédia et de l’Internet), j’aspire à évoluer vers un post de directrice artistique ou vidéaste.<br><br>
-
-                                <strong>Mes compétences en résumé </strong>:<br><br>
-
-                                ● Création graphique et audiovisuelle : Maîtrise et exploration continue de Premiere Pro, Photoshop, After Effects et autres outils de la suite Adobe ainsi que Blender (en début apprentissage).<br>
-                                ● UX/UI design : Ergonomie, accessibilité web, démarche UX UI et maquettes sur Figma. Conception d’interfaces.<br>
-                                ● Développement web : Langages de programmation HTML, CSS, JavaScript, PHP, SQL, avec conception de bases de données sur phpMyAdmin.<br>
-                                ● Gestion de projet, développement personnel et connaissance de soi.<br><br>
-                            </p>
-                            <button class="btn-lire-plus">Lire plus</button>
-                        </div>
-
-                        <div class="img">
-                            <img src="img/Capture photo CV Lucie 2025 copie.webp" alt="Portrait" class="portrait">
-                        </div>
-                    </div>
-                
-
-                <h2 class="titre_parcours">Mon parcours</h2>
-                <div class="parcours-container">
-                    <div class="parcours-card">
-                        <div class="parcours-year">2025</div>
-                        <div class="parcours-title">BUT MMI (Métiers du Multimédia et de l'Internet) - BUT2</div>
-                        <div class="parcours-description">
-                            <p>En cours de 2e année de formation en création numériaque.</p>
-                        </div>
-                    </div>
-
-                    <div class="parcours-card">
-                        <div class="parcours-year">2024</div>
-                        <div class="parcours-title">Baccalauréat général</div>
-                        <div class="parcours-description">
-                            <p>Baccalauréat général - spécialités mathématiques et physique chimie</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="separator-block">
-                    <div class="competences-block">
-                        <h2 class="titre-competences">Compétences</h2>
-                        <div class="competences">
-                            <h3>Savoir-être</h3>
-                            <button class="bouton1">Créativité</button>
-                            <button class="bouton1">Écoute active</button>
-                            <button class="bouton1">Organisation</button>
-                            <button class="bouton1">Travail d'équipe</button>
-                            <button class="bouton1">Autonomie</button>
-                            <button class="bouton1">Sens du détail</button>
-                            <button class="bouton1">Rigueur</button>
-
-                            <h3>Savoir-faire</h3>
-                            <button class="bouton2">Design graphique et print</button>
-                            <button class="bouton2">Communication digitale</button>
-                            <button class="bouton2">Tournage et montage vidéo</button>
-                            <button class="bouton2">Incrustations et compositing</button>
-                            <button class="bouton2">Photographie et retouches</button>
-                            <button class="bouton2">UX/UI design et prototypage</button>
-                            <button class="bouton2">Dataviz et infographies</button>
-                            <button class="bouton2">Gestion de projet</button>
-                            <button class="bouton2">Anglais - B2</button>
-                            <button class="bouton3">Conception de bases de données</button>
-                            <button class="bouton3">Développement front et back-end</button>
-                        </div>
-                    </div>
-
-                    <div class="logiciels-block">
-                        <h2 class="titre-logiciels">Outils</h2>
-                        <div class="logiciels">
-                            <h3>Création numérique</h3>
-                            <div class="crea">
-                                <img src="img/photoshop.webp" alt="Photoshop" class="logiciel-icon">
-                                <img src="img/indesign.webp" alt="Indesign" class="logiciel-icon">
-                                <img src="img/illustrator.png" alt="Illustrator" class="logiciel-icon">
-                                <img src="img/premierProp.png" alt="Premier Pro" class="logiciel-icon">
-                                <img src="img/afterEffect.png" alt="After Effect" class="logiciel-icon">
-                                <img src="img/lightroom.webp" alt="lightroom" class="logiciel-icon">
-                                <img src="img/audition.png" alt="Audition" class="logiciel-icon">
-                                <img src="img/figma.png" alt="Figma" class="logiciel-icon">
-                                <img src="img/canva.png" alt="Canva" class="logiciel-icon">
-                                <img src="img/notion.png" alt="Notion" class="logiciel-icon">
-                                <img src="img/wordpress.webp" alt="Wordpress" class="logiciel-icon">
-                                <img src="img/blender.png" alt="Blender" class="logiciel-icon">
-                            </div>
-                            <div class="dev">
-                                <h3>Développement web</h3>
-                                <img src="img/javascript.png" alt="JavaScript" class="logiciel-icon">
-                                <img src="img/html.png" alt="HTML" class="logiciel-icon">
-                                <img src="img/css.png" alt="CSS" class="logiciel-icon">
-                                <img src="img/vscode.png" alt="VScode" class="logiciel-icon">
-                                <img src="img/php.png" alt="Php" class="logiciel-icon">
-                                <img src="img/github.png" alt="Github" class="logiciel-icon">
-                                <img src="img/chatgpt.png" alt="Chatgpt" class="logiciel-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bande opquast-section">
-    <div class="bande-content">
-        <h2>Formée à Opquast</h2>
-        <p>En tant que future professionnelle du numérique, je suis également formée aux règles <strong>Opquast</strong>.<br>
-             Elles permettent de faire appliquer les bonnes pratiques de la <strong>qualité web</strong> et couvrent des domaines essentiels comme <strong>l’accessibilité, l’ergonomie, la performance, la sécurité et le référencement</strong>. Grâce à Opquast, je conçois des sites web plus fiables, plus inclusifs et plus efficaces, en respectant des standards qui améliorent l’expérience utilisateur et la qualité globale des projets numériques, tout en incluant des pratiques écoresponsables.</p>
+  <!-- ===== HERO — Fleurs animées ===== -->
+  <section class="hero" id="hero" aria-label="Page d'accueil">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <a href="#apropos" class="hero-scroll" aria-label="Découvrir mon profil">
+        <span class="scroll-text">Découvrir</span>
+        <span class="scroll-chevron" aria-hidden="true">
+          <svg viewBox="0 0 22 12"><polyline points="2,2 11,10 20,2"/></svg>
+          <svg viewBox="0 0 22 12"><polyline points="2,2 11,10 20,2"/></svg>
+        </span>
+      </a>
     </div>
-</div>
+  </section>
 
-<div class="temoignage">
-    <div class="section-header">
-        <h2>Recommandations</h2>
-    </div>
-    <div class="temoignage-grid">
-        <div class="temoignage_card">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <h3>L'équipe Chab'Livraison</h3>
-            <p class="mention">Dans le cadre de mon stage chez Chab'Livraison</p>
+  <!-- ===== À PROPOS ===== -->
+  <main class="page-content" id="apropos">
+
+    <section class="apropos-section container">
+
+      <!-- Bannière alternance — clignotement doux, sans icône -->
+      <div class="alternance-banner" role="note" aria-label="Recherche d'alternance">
+        <p>En recherche d'une <strong>alternance en graphisme / chargée de communication</strong> — 12 mois à partir de septembre 2026</p>
+      </div>
+
+      <!-- Profil : texte à gauche, photo à droite -->
+      <div class="profil-grid">
+
+        <div class="profil-text">
+          <div class="profil-description" id="profil-description">
             <p>
-                Dans le cadre de missions de communication et de marketing entre mi-juillet et mi-octobre 2025, Lucie a assuré la gestion des réseaux sociaux ainsi que la communication globale de l’entreprise. <br> 
-                Elle a fait preuve de rigueur, de sérieux et de fiabilité dans l’exécution des missions qui lui ont été confiées. Son travail a pleinement répondu à nos attentes et son expérience nous a apporté une aide précieuse.
+              Passionnée par la création visuelle et la stratégie de communication, je conçois des univers graphiques percutants, du brief créatif jusqu'à la livraison finale (Print, Digital, Vidéo).<br><br>
+
+              Originaire de Haute-Savoie , j'ai posé mes valises en Île-de-France en 2024 pour enrichir mon parcours académique  et saisir de nouvelles opportunités. 
             </p>
-            <div>
-                <a href="Attestation_collaboration_Lucie_ChabLivraison.pdf" download class="bouton2">
-                    <i class="fas fa-download"></i> Télécharger le PDF
-                </a>
+            <p class="extra-text">
+              Étudiante curieuse et rigoureuse à l'Université Gustave Eiffel (Champs-sur-Marne), je combine une forte sensibilité artistique (photographie, direction artistique) avec une solide culture technique (chaîne graphique, bases UX/UI et code) pour donner vie à des projets porteurs de sens. 
+            </p>
+            <p class="extra-text">
+              <strong>Mes compétences en résumé :</strong><br><br>  
+              - Communication digitale : Déclinaison sur des supports multi-format, stratégie de contenu et community management.<br>
+              - Techniques et paramètres d'impression : Suivi complet de la chaîne graphique jusqu'à la finalisation.  <br>
+              - Tournage et montage vidéo : Prise de vue sur le terrain, utilisation de stabilisateurs et montage sur Premiere Pro.  <br> 
+              - Incrustations et compositing : Maîtrise des effets visuels et clés sur After Effects. <br><br> 
+              - UX/UI design et prototypage : Conception de maquettes et cartes interactives sur Figma.  <br>
+              - Intégration web (Bonus) : HTML, CSS, PHP, JavaScript.  <br>
+              - Gestion de projet : Planification efficace et suivi de projet.<br>
+            </p>
+          </div>
+          <!-- Lire plus : visible seulement sur tablette/mobile (masqué sur desktop via CSS) -->
+          <button class="btn-lire-plus" id="btn-lire-plus" aria-expanded="false">
+            Lire plus <span class="lire-arrow">↓</span>
+          </button>
+
+          <div class="profil-actions">
+            <a href="projets.html" class="btn-primary">
+              Voir mes projets
+            </a>
+          </div>
+        </div>
+
+        <div class="profil-photo">
+          <img
+            src="img/Capture photo CV Lucie 2025 copie.webp"
+            alt="Portrait de Lucie Nivinou"
+            class="portrait"
+            loading="eager"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== COMPÉTENCES ===== -->
+    <section class="competences-section" aria-labelledby="comp-title">
+      <div class="container">
+        <h2 class="section-title" id="comp-title">Compétences</h2>
+        <p class="section-subtitle">Savoir-être, savoir-faire et maîtrise technique</p>
+
+        <div class="competences-grid">
+
+          <!-- Savoir-faire À GAUCHE -->
+          <div class="comp-card">
+            <h3>Savoir-faire</h3>
+            <div class="tags-group">
+              <span class="tag tag-purple">Design graphique et print</span>
+              <span class="tag tag-purple">Communication digitale</span>
+              <span class="tag tag-purple">Tournage et montage vidéo</span>
+              <span class="tag tag-purple">Incrustations et compositing</span>
+              <span class="tag tag-purple">Photographie et retouches</span>
+              <span class="tag tag-purple">UX/UI design et prototypage</span>
+              <span class="tag tag-purple">Dataviz et infographies</span>
+              <span class="tag tag-purple">Gestion de projet</span>
+              <span class="tag tag-purple">Anglais — B2</span>
+              <span class="tag tag-dark">Conception de bases de données</span>
+              <span class="tag tag-dark">Développement front et back-end</span>
             </div>
-        </div>
-        <div class="temoignage_card">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <h3>Hayrunnisa</h3>
-            <p class="mention">Étudiante en 2e année de BUT MMI</p>
-            <p>Lucie est une personne avec qui j’ai pu faire de nombreux projets universitaires. <br>
-                C’est quelqu’un d’essentiel dans une équipe, autant pour sa discipline que pour sa créativité et son côté humain. Elle garde toujours sa touche personnelle, ce qui la rend unique dans son domaine. <br>
-                Même dans les moments difficiles, elle sait rester calme et réagir pour le bien de tous. <br>
-                J’aime vraiment travailler avec elle !</p>
-        </div>
-        <div class="temoignage_card">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <h3>Madhvi</h3>
-            <p class="mention">Étudiante en 2e année de BUT MMI</p>
-            <p>Lors de notre formation MMI, j’ai eu l’occasion de collaborer avec Lucie sur plusieurs projets. Lucie a toujours été quelqu’un sur qui nous pouvions compter.<br>
-            Elle fournit un travail de très grande qualité et est une personne très sérieuse et agréable.<br>
-            Durant tous les travaux que nous avons réalisés ensemble, elle s’est toujours montrée investie et organisée, elle est capable de s’adapter à tous les projets, ce qui a été un point fort pour leur réussite !</p>
-        </div>
-    </div>
-</div>
+          </div>
 
-<!-- <div class="cv-section">
-    <h2>Mon CV</h2>
-    <div class="cv-container">
-        <div class="cv-preview">
-            <img src="CV Lucie Nivinou (crea) 23-01-26.png" alt="Aperçu de mon CV" class="cv-image">
-            <div class="cv-overlay">
-                <a href="CV Lucie Nivinou (crea) 23-01-26.pdf" download class="bouton2">
-                    <i class="fas fa-download"></i> Télécharger le PDF
-                </a>
+          <!-- Savoir-être À DROITE -->
+          <div class="comp-card">
+            <h3>Savoir-être</h3>
+            <div class="tags-group">
+              <span class="tag">Créativité</span>
+              <span class="tag">Écoute active</span>
+              <span class="tag">Organisation</span>
+              <span class="tag">Travail d'équipe</span>
+              <span class="tag">Autonomie</span>
+              <span class="tag">Sens du détail</span>
+              <span class="tag">Rigueur</span>
+              <span class="tag">Adaptabilité</span>
             </div>
-        </div>
-    </div>
-</div> -->
-<!-- Div class="section-intro fireflies-container" -->
-</div>
-
-            </div> <footer class="footer-structured">
-                <div class="footer-container">
-                    <div class="footer-section navigation">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="index.html">À propos</a></li>
-                            <li><a href="audiovisuel.html">Audiovisuel</a></li>
-                            <li><a href="crea.html">Création numérique</a></li>
-                            <li><a href="developpement_web.html">Développement web</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-section contact">
-                        <h4>Contact & Réseaux</h4>
-                        <ul>
-                            <li><a href="mailto:lucieniv74@gmail.com">
-                                <i class="fas fa-envelope"></i> Email : lucieniv74@gmail.com
-                            </a></li>
-                            <li><a href="https://www.linkedin.com/in/lucie-nivinou-09a6a0330/" target="_blank">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a></li>
-                            <li><a href="https://github.com/Lucie-Niv" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; 2025 NIVINOU Lucie. Design & Développement par l'auteur.</p>
-                    <a href="#top" class="back-to-top">Retour en haut</a>
-                </div>
-            </footer>
+          </div>
 
         </div>
-    </div>
-</div>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- ===== OUTILS ===== -->
+    <section class="outils-section container" aria-labelledby="outils-title">
+      <h2 class="section-title" id="outils-title">Outils</h2>
+      <p class="section-subtitle">Les logiciels que je maîtrise au quotidien</p>
+
+      <div class="outils-grid">
+        <div class="outils-group">
+          <h3>Création numérique</h3>
+          <div class="outils-icons">
+            <div class="outil-item"><img src="img/photoshop.webp" alt="Photoshop" title="Photoshop"><span>Photoshop</span></div>
+            <div class="outil-item"><img src="img/indesign.webp" alt="InDesign" title="InDesign"><span>InDesign</span></div>
+            <div class="outil-item"><img src="img/illustrator.png" alt="Illustrator" title="Illustrator"><span>Illustrator</span></div>
+            <div class="outil-item"><img src="img/premierProp.png" alt="Premiere Pro" title="Premiere Pro"><span>Premiere Pro</span></div>
+            <div class="outil-item"><img src="img/afterEffect.png" alt="After Effects" title="After Effects"><span>After Effects</span></div>
+            <div class="outil-item"><img src="img/lightroom.webp" alt="Lightroom" title="Lightroom"><span>Lightroom</span></div>
+            <div class="outil-item"><img src="img/audition.png" alt="Audition" title="Audition"><span>Audition</span></div>
+            <div class="outil-item"><img src="img/figma.png" alt="Figma" title="Figma"><span>Figma</span></div>
+            <div class="outil-item"><img src="img/canva.png" alt="Canva" title="Canva"><span>Canva</span></div>
+            <div class="outil-item"><img src="img/notion.png" alt="Notion" title="Notion"><span>Notion</span></div>
+            <div class="outil-item"><img src="img/wordpress.webp" alt="WordPress" title="WordPress"><span>WordPress</span></div>
+            <div class="outil-item"><img src="img/blender.png" alt="Blender" title="Blender"><span>Blender</span></div>
+          </div>
+        </div>
+        <div class="outils-group">
+          <h3>Développement web</h3>
+          <div class="outils-icons">
+            <div class="outil-item"><img src="img/html.png" alt="HTML" title="HTML"><span>HTML</span></div>
+            <div class="outil-item"><img src="img/css.png" alt="CSS" title="CSS"><span>CSS</span></div>
+            <div class="outil-item"><img src="img/javascript.png" alt="JavaScript" title="JavaScript"><span>JavaScript</span></div>
+            <div class="outil-item"><img src="img/php.png" alt="PHP" title="PHP"><span>PHP</span></div>
+            <div class="outil-item"><img src="img/vscode.png" alt="VSCode" title="VSCode"><span>VSCode</span></div>
+            <div class="outil-item"><img src="img/github.png" alt="GitHub" title="GitHub"><span>GitHub</span></div>
+            <div class="outil-item"><img src="img/chatgpt.png" alt="ChatGPT" title="ChatGPT"><span>ChatGPT</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OPQUAST ===== -->
+    <section class="opquast-section container" aria-labelledby="opquast-title">
+      <div class="opquast-card">
+        <h2 class="section-title" id="opquast-title">Formée à Opquast</h2>
+        <p>
+          En tant que future professionnelle du numérique, je suis également formée aux règles <strong>Opquast</strong>. Elles permettent de faire appliquer les bonnes pratiques de la <strong>qualité web</strong> et couvrent des domaines essentiels comme <strong>l'accessibilité, l'ergonomie, la performance, la sécurité et le référencement</strong>. Grâce à Opquast, je conçois des sites web plus fiables, plus inclusifs et plus efficaces, en respectant des standards qui améliorent l'expérience utilisateur et la qualité globale des projets numériques, tout en incluant des pratiques écoresponsables.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== RECOMMANDATIONS ===== -->
+    <section class="temoignages-section container" aria-labelledby="temoignages-title">
+      <h2 class="section-title" id="temoignages-title">Recommandations</h2>
+      <p class="section-subtitle">Ce que disent ceux avec qui j'ai travaillé</p>
+
+      <div class="temoignages-grid">
+
+        <article class="temoignage-card">
+          <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+          <h3>L'équipe Chab'Livraison</h3>
+          <p class="mention">Dans le cadre de mon stage chez Chab'Livraison</p>
+          <p>Dans le cadre de missions de communication et de marketing entre mi-juillet et mi-octobre 2025, Lucie a assuré la gestion des réseaux sociaux ainsi que la communication globale de l'entreprise. Elle a fait preuve de rigueur, de sérieux et de fiabilité dans l'exécution des missions qui lui ont été confiées. Son travail a pleinement répondu à nos attentes et son expérience nous a apporté une aide précieuse.</p>
+          <a href="Attestation_collaboration_Lucie_ChabLivraison.pdf" download class="btn-ghost">
+            <i class="fas fa-download"></i> Télécharger l'attestation
+          </a>
+        </article>
+
+        <article class="temoignage-card">
+          <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+          <h3>Hayrunnisa</h3>
+          <p class="mention">Étudiante en 2e année de BUT MMI</p>
+          <p>Lucie est une personne avec qui j'ai pu faire de nombreux projets universitaires. C'est quelqu'un d'essentiel dans une équipe, autant pour sa discipline que pour sa créativité et son côté humain. Elle garde toujours sa touche personnelle, ce qui la rend unique dans son domaine. Même dans les moments difficiles, elle sait rester calme et réagir pour le bien de tous. J'aime vraiment travailler avec elle !</p>
+        </article>
+
+        <article class="temoignage-card">
+          <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+          <h3>Madhvi</h3>
+          <p class="mention">Étudiante en 2e année de BUT MMI</p>
+          <p>Lors de notre formation MMI, j'ai eu l'occasion de collaborer avec Lucie sur plusieurs projets. Lucie a toujours été quelqu'un sur qui nous pouvions compter. Elle fournit un travail de très grande qualité et est une personne très sérieuse et agréable. Durant tous les travaux que nous avons réalisés ensemble, elle s'est toujours montrée investie et organisée, capable de s'adapter à tous les projets, ce qui a été un point fort pour leur réussite !</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">À propos</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Me retrouver</h4>
+        <ul>
+          <li><a href="mailto:lucieniv74@gmail.com"><i class="fas fa-envelope"></i> lucieniv74@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/lucie-nivinou-09a6a0330/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://github.com/Lucie-Niv" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="#top" class="back-to-top" aria-label="Retour en haut de la page">↑ Retour en haut</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

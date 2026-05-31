@@ -1,0 +1,128 @@
+/* ============================================
+   categorie.css v2 — Liste projets d'une catégorie
+   ============================================ */
+
+html[data-preload-dark] { background: #0F0D1A !important; }
+
+/* En-tête */
+.categorie-header {
+  padding: 8px 0 40px;
+}
+
+.categorie-header .section-title {
+  margin-bottom: 0;
+}
+
+/* Grille 3 colonnes */
+.projets-liste {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-bottom: 80px;
+}
+
+/* Carte projet */
+.projet-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), border-color var(--transition);
+  cursor: pointer;
+}
+
+.projet-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-light);
+}
+
+/* Pas de box-shadow en dark mode */
+body:not(.dark-mode) .projet-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Image */
+.projet-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--accent-soft);
+  position: relative;
+}
+
+/* ratio portrait uniquement pour la catégorie photo */
+.projet-card-img.photo-ratio {
+  aspect-ratio: 1 / 1;
+}
+
+.projet-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.projet-card:hover .projet-card-img img {
+  transform: scale(1.04);
+}
+
+/* Plus d'overlay "Voir →" — seulement changement couleur bordure */
+
+/* Placeholder sans image */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--accent-light);
+  background: var(--accent-soft);
+}
+
+/* Infos */
+.projet-card-info {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.projet-card-year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.projet-card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Message vide */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 72px 20px;
+  color: var(--text-muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+  .projets-liste { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .projets-liste { grid-template-columns: 1fr; }
+  .categorie-header { padding: 4px 0 28px; }
+}

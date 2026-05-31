@@ -1,0 +1,481 @@
+/* ============================================
+   index.css v2 — Page d'accueil
+   ============================================ */
+
+/* ===== ANTI-FLASH : fond sombre appliqué sur html avant body ===== */
+html[data-preload-dark] {
+  background: #0F0D1A !important;
+}
+
+/* ===== HERO — Fleurs animées ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+  transition: background var(--transition);
+}
+
+/* Canvas fleurs */
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Contenu centré — seulement le lien Découvrir */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  /* Fade-in après les fleurs */
+  opacity: 0;
+  animation: hero-appear 1s ease 2.2s forwards;
+}
+
+@keyframes hero-appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Lien "Découvrir" */
+.hero-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity var(--transition), transform var(--transition);
+  animation: scroll-bounce 2.8s ease-in-out infinite 3.5s;
+}
+
+.hero-scroll:hover { opacity: 0.7; }
+
+.scroll-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.scroll-chevron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: -4px;
+}
+
+.scroll-chevron svg {
+  width: 22px;
+  height: 14px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+
+.scroll-chevron svg:nth-child(2) {
+  opacity: 0.45;
+  margin-top: -6px;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(9px); }
+}
+
+/* ===== À PROPOS ===== */
+.apropos-section {
+  padding: 80px 0 60px;
+}
+
+/* Bannière alternance — clignotement doux */
+.alternance-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent-light);
+  border-radius: var(--radius-md);
+  padding: 15px 24px;
+  margin-bottom: 56px;
+  animation: banner-blink 2.6s ease-in-out infinite;
+}
+
+@keyframes banner-blink {
+  0%, 100% { opacity: 1; border-color: var(--accent-light); }
+  50%       { opacity: 0.72; border-color: transparent; }
+}
+
+.alternance-banner p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.alternance-banner strong { color: var(--accent); }
+
+/* Grille profil — description gauche, photo droite */
+.profil-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Photo */
+.profil-photo {
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  text-align: right;
+}
+
+.portrait {
+  width: clamp(200px, 20vw, 290px);
+  /* border-radius: var(--radius-lg); */
+  border: 2px solid var(--accent-soft);
+  box-shadow: var(--shadow-lg);
+  transform: scaleX(-1);
+  transition: box-shadow var(--transition), border-color var(--transition);
+  margin-left: auto;
+}
+
+.portrait:hover {
+  box-shadow: 0 20px 56px rgba(124,58,237,0.18);
+  border-color: var(--accent);
+}
+
+/* Texte */
+.profil-text {}
+
+.profil-description p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.profil-description p:last-child { margin-bottom: 0; }
+
+/* Extra text (masqué par défaut desktop ET mobile) */
+.extra-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.extra-text.open {
+  max-height: 800px;
+  opacity: 1;
+}
+
+/* Bouton Lire plus — visible sur tous les formats, mais en desktop
+   il est uniquement affiché si JS le détecte nécessaire */
+.btn-lire-plus {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 22px;
+  margin-top: 16px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--transition), transform var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.btn-lire-plus:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.lire-arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  font-size: 0.75rem;
+}
+
+.btn-lire-plus[aria-expanded="true"] .lire-arrow {
+  transform: rotate(180deg);
+}
+
+/* Masquer le bouton Lire plus sur desktop (il n'y a pas de troncature) */
+@media (min-width: 769px) {
+  .btn-lire-plus { display: none !important; }
+  .extra-text { max-height: none !important; opacity: 1 !important; overflow: visible !important; }
+}
+
+/* Actions profil — uniquement le bouton Projets */
+.profil-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ===== COMPÉTENCES ===== */
+.competences-section {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 72px 0;
+  margin: 60px 0;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+/* Savoir-faire à gauche, Savoir-être à droite */
+.competences-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.comp-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.comp-card h3 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin: 0 0 18px;
+}
+
+/* Groupe de tags — cases carrées, non cliquables */
+.tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Tags compétences — carrés, plus grands, pas de hover */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  cursor: default;
+  user-select: none;
+}
+
+/* Variantes couleur */
+.tag-purple {
+  background: rgba(167,139,250,0.13);
+  color: var(--accent);
+  border-color: var(--accent-light);
+}
+
+.tag-dark {
+  background: rgba(76,29,149,0.1);
+  color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+body.dark-mode .tag-dark {
+  color: var(--accent-light);
+  border-color: var(--accent-light);
+  background: rgba(167,139,250,0.1);
+}
+
+/* ===== OUTILS ===== */
+.outils-section { padding: 0 0 72px; }
+
+.outils-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.outils-group h3 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.outils-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.outil-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 62px;
+  transition: transform var(--transition);
+}
+
+.outil-item:hover { transform: translateY(-4px); }
+
+.outil-item img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.outil-item span {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* ===== OPQUAST ===== */
+.opquast-section { padding: 0 0 72px; }
+
+.opquast-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.opquast-card .section-title {
+  margin-bottom: 14px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Limite de longueur de ligne ~90 caractères */
+.opquast-card p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 72ch; /* ~90 caractères selon la police */
+}
+
+/* ===== RECOMMANDATIONS ===== */
+.temoignages-section { padding: 0 0 96px; }
+
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.temoignage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  transition: transform var(--transition), box-shadow var(--transition),
+              background var(--transition), border-color var(--transition);
+}
+
+.temoignage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.quote-icon {
+  font-size: 1.35rem;
+  color: var(--accent-light);
+  margin-bottom: 12px;
+  display: block;
+  opacity: 0.55;
+}
+
+.temoignage-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--text);
+}
+
+.mention {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0 0 14px;
+  font-style: italic;
+}
+
+.temoignage-card p {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+}
+
+.temoignage-card p:last-child { margin-bottom: 0; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .temoignages-grid  { grid-template-columns: 1fr 1fr; }
+  .outils-grid       { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  /* Mobile : description EN HAUT, photo EN BAS */
+  .profil-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .profil-photo {
+    position: static;
+    text-align: center;
+    order: 2;
+  }
+
+  .profil-text { order: 1; }
+
+  .portrait {
+    width: clamp(150px, 50vw, 220px);
+    margin: 0 auto;
+  }
+
+  .competences-grid  { grid-template-columns: 1fr; }
+  .temoignages-grid  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .apropos-section   { padding: 44px 0 36px; }
+  .alternance-banner { padding: 13px 16px; }
+  .opquast-card      { padding: 24px 20px; }
+  .outils-icons      { gap: 12px; }
+  .outil-item        { width: 54px; }
+  .outil-item img    { width: 40px; height: 40px; }
+
+  .footer-inner { flex-direction: column; gap: 28px; }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FAFAF9">
+  <title>Projets — Lucie Nivinou</title>
+
+  <!-- ANTI-FLASH DARK MODE -->
+  <script>(function(){var t=localStorage.getItem('lucie-portfolio-theme');if(t==='dark'){document.documentElement.setAttribute('data-preload-dark','1');document.documentElement.style.background='#0F0D1A';}})()</script>
+
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="categorie.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Accueil">L.N.</a>
+      <ul class="nav-links">
+        <li><a href="index.html">À propos</a></li>
+        <li><a href="projets.html" class="active">Projets</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn-contact-nav desktop-only">Me contacter</a>
+        <button class="btn-theme" id="btn-theme" aria-label="Passer en mode sombre"></button>
+        <button class="burger" id="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" role="navigation">
+    <a href="index.html">À propos</a>
+    <a href="projets.html" class="active">Projets</a>
+    <a href="contact.html" class="btn-contact-nav">Me contacter</a>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+
+      <a href="projets.html" class="btn-back">← Retour</a>
+
+      <div class="categorie-header">
+        <div>
+          <h1 class="section-title" id="cat-title">Chargement…</h1>
+        </div>
+      </div>
+
+      <div class="projets-liste" id="projets-liste" role="list"></div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">À propos</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Me retrouver</h4>
+        <ul>
+          <li><a href="mailto:lucieniv74@gmail.com"><i class="fas fa-envelope"></i> lucieniv74@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/lucie-nivinou-09a6a0330/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="#top" class="back-to-top">↑ Retour en haut</a>
+    </div>
+  </footer>
+
+  <script src="projects-data.js"></script>
+  <script src="main.js"></script>
+  <script src="categorie.js"></script>
+</body>
+</html>
