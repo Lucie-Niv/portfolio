@@ -38,7 +38,6 @@ html[data-preload-dark] {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  /* Fade-in après les fleurs */
   opacity: 0;
   animation: hero-appear 1s ease 2.2s forwards;
 }
@@ -49,6 +48,36 @@ html[data-preload-dark] {
 }
 
 /* Lien "Découvrir" */
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 10px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin: 0 0 48px;
+  letter-spacing: 0.04em;
+}
+
+
 .hero-scroll {
   display: flex;
   flex-direction: column;
@@ -99,7 +128,11 @@ html[data-preload-dark] {
 
 /* ===== À PROPOS ===== */
 .apropos-section {
-  padding: 80px 0 60px;
+  /* CORRECTION : on ne redéfinit que le padding vertical.
+     Le padding horizontal est géré par .container dans global.css
+     via padding: 0 clamp(20px, 5vw, 56px) */
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 
 /* Bannière alternance — clignotement doux */
@@ -146,7 +179,6 @@ html[data-preload-dark] {
 
 .portrait {
   width: clamp(200px, 20vw, 290px);
-  /* border-radius: var(--radius-lg); */
   border: 2px solid var(--accent-soft);
   box-shadow: var(--shadow-lg);
   transform: scaleX(-1);
@@ -171,7 +203,7 @@ html[data-preload-dark] {
 
 .profil-description p:last-child { margin-bottom: 0; }
 
-/* Extra text (masqué par défaut desktop ET mobile) */
+/* Extra text (masqué par défaut mobile) */
 .extra-text {
   max-height: 0;
   overflow: hidden;
@@ -184,8 +216,13 @@ html[data-preload-dark] {
   opacity: 1;
 }
 
-/* Bouton Lire plus — visible sur tous les formats, mais en desktop
-   il est uniquement affiché si JS le détecte nécessaire */
+/* Masquer le bouton Lire plus sur desktop */
+@media (min-width: 769px) {
+  .btn-lire-plus { display: none !important; }
+  .extra-text { max-height: none !important; opacity: 1 !important; overflow: visible !important; }
+}
+
+/* Bouton Lire plus */
 .btn-lire-plus {
   background: var(--accent);
   border: none;
@@ -218,13 +255,7 @@ html[data-preload-dark] {
   transform: rotate(180deg);
 }
 
-/* Masquer le bouton Lire plus sur desktop (il n'y a pas de troncature) */
-@media (min-width: 769px) {
-  .btn-lire-plus { display: none !important; }
-  .extra-text { max-height: none !important; opacity: 1 !important; overflow: visible !important; }
-}
-
-/* Actions profil — uniquement le bouton Projets */
+/* Actions profil */
 .profil-actions {
   margin-top: 28px;
   display: flex;
@@ -242,7 +273,6 @@ html[data-preload-dark] {
   transition: background var(--transition), border-color var(--transition);
 }
 
-/* Savoir-faire à gauche, Savoir-être à droite */
 .competences-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -266,14 +296,12 @@ html[data-preload-dark] {
   margin: 0 0 18px;
 }
 
-/* Groupe de tags — cases carrées, non cliquables */
 .tags-group {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* Tags compétences — carrés, plus grands, pas de hover */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -289,7 +317,6 @@ html[data-preload-dark] {
   user-select: none;
 }
 
-/* Variantes couleur */
 .tag-purple {
   background: rgba(167,139,250,0.13);
   color: var(--accent);
@@ -309,7 +336,7 @@ body.dark-mode .tag-dark {
 }
 
 /* ===== OUTILS ===== */
-.outils-section { padding: 0 0 72px; }
+.outils-section { padding-bottom: 72px; }
 
 .outils-grid {
   display: grid;
@@ -361,7 +388,7 @@ body.dark-mode .tag-dark {
 }
 
 /* ===== OPQUAST ===== */
-.opquast-section { padding: 0 0 72px; }
+.opquast-section { padding-bottom: 72px; }
 
 .opquast-card {
   background: var(--bg-card);
@@ -376,17 +403,16 @@ body.dark-mode .tag-dark {
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
-/* Limite de longueur de ligne ~90 caractères */
 .opquast-card p {
   color: var(--text-muted);
   font-size: 0.9375rem;
   line-height: 1.8;
   margin: 0;
-  max-width: 72ch; /* ~90 caractères selon la police */
+  max-width: 72ch;
 }
 
 /* ===== RECOMMANDATIONS ===== */
-.temoignages-section { padding: 0 0 96px; }
+.temoignages-section { padding-bottom: 96px; }
 
 .temoignages-grid {
   display: grid;
@@ -446,7 +472,6 @@ body.dark-mode .tag-dark {
 }
 
 @media (max-width: 768px) {
-  /* Mobile : description EN HAUT, photo EN BAS */
   .profil-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -470,7 +495,7 @@ body.dark-mode .tag-dark {
 }
 
 @media (max-width: 480px) {
-  .apropos-section   { padding: 44px 0 36px; }
+  .apropos-section   { padding-top: 44px; padding-bottom: 36px; }
   .alternance-banner { padding: 13px 16px; }
   .opquast-card      { padding: 24px 20px; }
   .outils-icons      { gap: 12px; }
