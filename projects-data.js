@@ -31,7 +31,8 @@ const PROJECTS_DATA = {
           { src: "img/illustrator.png", alt: "Illustrator" },
           { src: "img/photoshop.webp",  alt: "Photoshop" },
           { src: "img/indesign.webp",   alt: "Indesign" }
-        ]
+        ],
+        lien: "fete_enfance.pdf"
       },
       {
         id: "campagne-bordeaux",
