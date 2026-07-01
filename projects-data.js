@@ -149,8 +149,71 @@ const PROJECTS_DATA = {
     projects: [
       {
         id: "dossier1",
+        title: "Force animale",
+        year: 2026,
+        mockup: "img/animaux.webp",
+        images: {
+          type: "gallery",
+          srcs: [
+            "img/photographies/animaux/1.webp",
+            "img/photographies/animaux/2.webp",
+            "img/photographies/animaux/3.webp",
+            "img/photographies/animaux/4.webp",
+            "img/photographies/animaux/5.webp",
+            "img/photographies/animaux/6.webp",
+            "img/photographies/animaux/7.webp",
+            "img/photographies/animaux/8.webp"
+          ]
+        },
+        competences: ["Photographie", "Cadrage", "Retouche photo"],
+        logiciels: [
+          { src: "img/lightroom.webp", alt: "Lightroom" },
+          { src: "img/photoshop.webp", alt: "Photoshop" }
+        ]
+      },
+      {
+        id: "dossier2",
+        title: "La montagne en noir et blanc",
+        year: 2026,
+        mockup: "img/montagne.webp",
+        images: {
+          type: "gallery",
+          srcs: [
+            "img/photographies/montagne/1.webp",
+            "img/photographies/montagne/2.webp",
+            "img/photographies/montagne/3.webp",
+            "img/photographies/montagne/4.webp"
+          ]
+        },
+        competences: ["Photographie", "Cadrage", "Retouche photo"],
+        logiciels: [
+          { src: "img/lightroom.webp", alt: "Lightroom" }
+        ]
+      },
+      {
+        id: "dossier3",
+        title: "Les Sables",
+        year: 2026,
+        mockup: "img/les-sables.webp",
+        images: {
+          type: "gallery",
+          srcs: [
+            "img/photographies/les-sables/1.webp",
+            "img/photographies/les-sables/2.webp",
+            "img/photographies/les-sables/3.webp",
+            "img/photographies/les-sables/4.webp",
+            "img/photographies/les-sables/5.webp"
+          ]
+        },
+        competences: ["Photographie", "Cadrage", "Retouche photo"],
+        logiciels: [
+          { src: "img/lightroom.webp", alt: "Lightroom" }
+        ]
+      },
+      {
+        id: "dossier4",
         title: "Paris ensoleillé",
-        year: 2025,
+        year: 2026,
         mockup: "img/paris.webp",
         images: {
           type: "gallery",
@@ -170,69 +233,9 @@ const PROJECTS_DATA = {
         ]
       },
       {
-        id: "dossier2",
-        title: "La montagne en noir et blanc",
-        year: 2025,
-        mockup: "img/montagne.webp",
-        images: {
-          type: "gallery",
-          srcs: [
-            "img/photographies/montagne/1.webp",
-            "img/photographies/montagne/2.webp",
-            "img/photographies/montagne/3.webp",
-            "img/photographies/montagne/4.webp"
-          ]
-        },
-        competences: ["Photographie", "Cadrage", "Retouche photo"],
-        logiciels: [
-          { src: "img/lightroom.webp", alt: "Lightroom" }
-        ]
-      },
-      {
-        id: "dossier3",
-        title: "Les Sables",
-        year: 2025,
-        mockup: "img/les-sables.webp",
-        images: {
-          type: "gallery",
-          srcs: [
-            "img/photographies/les-sables/1.webp",
-            "img/photographies/les-sables/2.webp",
-            "img/photographies/les-sables/3.webp",
-            "img/photographies/les-sables/4.webp",
-            "img/photographies/les-sables/5.webp"
-          ]
-        },
-        competences: ["Photographie", "Cadrage", "Retouche photo"],
-        logiciels: [
-          { src: "img/lightroom.webp", alt: "Lightroom" }
-        ]
-      },
-      {
-        id: "dossier4",
-        title: "Force animale",
-        year: 2025,
-        mockup: "img/animaux.webp",
-        images: {
-          type: "gallery",
-          srcs: [
-            "img/photographies/animaux/1.webp",
-            "img/photographies/animaux/2.webp",
-            "img/photographies/animaux/3.webp",
-            "img/photographies/animaux/4.webp",
-            "img/photographies/animaux/5.webp"
-          ]
-        },
-        competences: ["Photographie", "Cadrage", "Retouche photo"],
-        logiciels: [
-          { src: "img/lightroom.webp", alt: "Lightroom" },
-          { src: "img/photoshop.webp", alt: "Photoshop" }
-        ]
-      },
-      {
         id: "dossier5",
         title: "Japon en lumière",
-        year: 2025,
+        year: 2026,
         mockup: "img/japon-lumiere.webp",
         images: {
           type: "gallery",
