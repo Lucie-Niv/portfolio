@@ -49,20 +49,6 @@ const PROJECTS_DATA = {
         lien: "fete_enfance.pdf"
       },
       {
-        id: "campagne-bordeaux",
-        title: "Campagne de communication — Bordeaux",
-        year: 2025,
-        mockup: "img/campagne_com.webp",
-        description: `Je vous présente ici un projet purement créatif ! Une campagne de communication institutionnelle afin de promouvoir un événement dans une ville de France.\n\nMon groupe et moi — constitué de 3 personnes — avons choisi la ville de Bordeaux, pour sa beauté, son histoire mais surtout pour le vin ! Nous avions 2 mois (d'octobre à fin novembre 2025) pour réaliser : logo, affiches en portrait et paysage, bannières web et maquettes responsives de la page d'accueil du site.\n\nPour le thème de l'événement, l'idée d'une dégustation de vin m'est venue assez naturellement, mais nous voulions quelque chose d'un peu plus spécifique. C'est pourquoi notre idée finale a été : une dégustation de vin à l'aveugle sur le Pont de Pierre.\n\nAvec cette piste nous avons réalisé un moodboard et défini une direction artistique. Nous nous sommes ensuite répartis les éléments à réaliser.\n\nJ'ai ainsi créé une première version de l'affiche dans les deux formats, puis les maquettes de la page d'accueil. Photoshop et Figma ont été les deux logiciels principaux que j'ai utilisés pour ce travail. Nous avons aussi utilisé InDesign pour respecter les paramètres d'impression des affiches notamment avec les fonds perdus.\n\nJ'ai rassemblé tous les éléments du projet dans un dossier PDF avec sommaire interactif.\n\nCe projet m'a ainsi permis de :\n● Faire preuve d'une grande créativité afin d'imaginer puis designer les éléments de cette campagne,\n● Approfondir mes compétences sur Photoshop,\n● Approfondir ma maîtrise de Figma notamment avec les animations appliquées pour notre carte interactive,\n● Maîtriser les paramètres d'exportation pour le print et les fichiers Figma.`,
-        competences: ["Créativité", "Travail d'équipe", "Design graphique", "Maquettes de page web", "Exportation et formats optimisés"],
-        logiciels: [
-          { src: "img/photoshop.webp", alt: "Adobe Photoshop" },
-          { src: "img/figma.png",      alt: "Figma" },
-          { src: "img/indesign.webp",  alt: "InDesign" }
-        ],
-        lien: "Campagne_Lucie_Idrissa_Anh_comp+lien actif+lien page.pdf"
-      },
-      {
         id: "jpo",
         title: "Journée portes ouvertes — IUT",
         year: 2026,
@@ -75,6 +61,20 @@ const PROJECTS_DATA = {
           { src: "img/photoshop.webp",  alt: "Photoshop" }
         ],
         lien: "dossier_JPO.pdf"
+      },
+      {
+        id: "campagne-bordeaux",
+        title: "Campagne de communication — Bordeaux",
+        year: 2025,
+        mockup: "img/campagne_com.webp",
+        description: `Je vous présente ici un projet purement créatif ! Une campagne de communication institutionnelle afin de promouvoir un événement dans une ville de France.\n\nMon groupe et moi — constitué de 3 personnes — avons choisi la ville de Bordeaux, pour sa beauté, son histoire mais surtout pour le vin ! Nous avions 2 mois (d'octobre à fin novembre 2025) pour réaliser : logo, affiches en portrait et paysage, bannières web et maquettes responsives de la page d'accueil du site.\n\nPour le thème de l'événement, l'idée d'une dégustation de vin m'est venue assez naturellement, mais nous voulions quelque chose d'un peu plus spécifique. C'est pourquoi notre idée finale a été : une dégustation de vin à l'aveugle sur le Pont de Pierre.\n\nAvec cette piste nous avons réalisé un moodboard et défini une direction artistique. Nous nous sommes ensuite répartis les éléments à réaliser.\n\nJ'ai ainsi créé une première version de l'affiche dans les deux formats, puis les maquettes de la page d'accueil. Photoshop et Figma ont été les deux logiciels principaux que j'ai utilisés pour ce travail. Nous avons aussi utilisé InDesign pour respecter les paramètres d'impression des affiches notamment avec les fonds perdus.\n\nJ'ai rassemblé tous les éléments du projet dans un dossier PDF avec sommaire interactif.\n\nCe projet m'a ainsi permis de :\n● Faire preuve d'une grande créativité afin d'imaginer puis designer les éléments de cette campagne,\n● Approfondir mes compétences sur Photoshop,\n● Approfondir ma maîtrise de Figma notamment avec les animations appliquées pour notre carte interactive,\n● Maîtriser les paramètres d'exportation pour le print et les fichiers Figma.`,
+        competences: ["Créativité", "Travail d'équipe", "Design graphique", "Maquettes de page web", "Exportation et formats optimisés"],
+        logiciels: [
+          { src: "img/photoshop.webp", alt: "Adobe Photoshop" },
+          { src: "img/figma.png",      alt: "Figma" },
+          { src: "img/indesign.webp",  alt: "InDesign" }
+        ],
+        lien: "Campagne_Lucie_Idrissa_Anh_comp+lien actif+lien page.pdf"
       },
       {
         id: "publications-chab",
@@ -125,7 +125,7 @@ const PROJECTS_DATA = {
       },
       {
         id: "interview-goubert",
-        title: "Interview — M. Guillaume Goubert, directeur de La Croix",
+        title: "Interview de M. Guillaume Goubert - Directeur du journal La Croix",
         year: 2025,
         mockup: "img/interview.webp",
         youtube: "https://www.youtube.com/embed/34wE9t_SvTg",
